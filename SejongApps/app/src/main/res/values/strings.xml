@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SejongApps</string>
+    <string name="remainingText">Remaining Available Attempts </string>
+    <string name="outOfRemaining">Out of Attempts</string>
+</resources>
