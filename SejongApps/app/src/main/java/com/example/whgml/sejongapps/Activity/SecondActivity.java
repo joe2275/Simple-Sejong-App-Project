@@ -1,7 +1,9 @@
-package com.example.whgml.sejongapps;
+package com.example.whgml.sejongapps.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.whgml.sejongapps.R;
 
 public class SecondActivity extends AppCompatActivity {
 
