@@ -125,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
 
     private void countInvalidate()
     {
+        remainingText.setEnabled(true);
         validateCounter--;
         if(remainingText.getVisibility() == View.INVISIBLE) {
             remainingText.setVisibility(View.VISIBLE);

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/vertical_margin"
+    android:paddingBottom="@dimen/vertical_margin"
+    android:paddingLeft="@dimen/horizontal_margin"
+    android:paddingRight="@dimen/horizontal_margin"
+    tools:context=".Activity.QueryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/stIDEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"/>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/stNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"/>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/stAgeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Age"/>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/stEmailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/newbutton"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:text="Save" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/newbutton"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:text="Update" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/newbutton"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:text="Delete" />
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/selectNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter a Name"
+            />
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
