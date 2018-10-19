@@ -22,4 +22,5 @@
     <string name="error_valid_email_password">Wrong Email or Password</string>
     <string name="text_member">Already a member? Login</string>
     <string name="select_student_name">Enter a Student Name</string>
+    <string name="button_sql">SQLite</string>
 </resources>

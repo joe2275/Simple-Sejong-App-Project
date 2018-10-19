@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_USER_NAME + " TEXT, " +
             COLUMN_USER_EMAIL + " TEXT, " +
-            COLUMN_USER_AGE + "INTEGER, " +
+            COLUMN_USER_AGE + " INTEGER, " +
             COLUMN_USER_PASSWORD + " TEXT" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
