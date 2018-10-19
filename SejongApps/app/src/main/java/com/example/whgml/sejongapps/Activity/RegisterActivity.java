@@ -1,40 +1,32 @@
 package com.example.whgml.sejongapps.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
 import com.example.whgml.sejongapps.Helper.InputValidation;
 import com.example.whgml.sejongapps.Model.User;
 import com.example.whgml.sejongapps.R;
-import com.example.whgml.sejongapps.RegisterRequest;
 import com.example.whgml.sejongapps.sql.DatabaseHelper;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
     private final AppCompatActivity activity = RegisterActivity.this;
     private NestedScrollView nestedScrollView;
     private TextInputLayout textInputLayoutName;
     private TextInputLayout txtRegEmail;
+    private TextInputLayout textInputLayoutAge;
     private TextInputLayout textInputLayoutPassword;
     private TextInputLayout textInputLayoutConfirmPassword;
 
     private TextInputEditText txtName;
     private TextInputEditText txtEmail;
+    private TextInputEditText txtAge;
     private TextInputEditText txtPass;
     private TextInputEditText txtConf;
 
@@ -58,11 +50,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         nestedScrollView = (NestedScrollView)findViewById(R.id.register_nestedScrollView);
         textInputLayoutName = (TextInputLayout)findViewById(R.id.registerNameLayout);
         txtRegEmail = (TextInputLayout) findViewById(R.id.registerEmailLayout);
+        textInputLayoutAge = (TextInputLayout)findViewById(R.id.registerAgeLayout);
         textInputLayoutPassword = (TextInputLayout)findViewById(R.id.registerPasswordLayout);
         textInputLayoutConfirmPassword = (TextInputLayout)findViewById(R.id.registerConfirmPasswordLayout);
 
         txtName = (TextInputEditText)findViewById(R.id.registerName);
         txtEmail = (TextInputEditText)findViewById(R.id.registerEmail);
+        txtAge = (TextInputEditText)findViewById(R.id.registerAge);
         txtPass = (TextInputEditText)findViewById(R.id.registerPassword);
         txtConf = (TextInputEditText)findViewById(R.id.registerConfirmPassword);
 
@@ -101,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         {
             return;
         }
-        if(!inputValidation.isInputEditTextEmail(txtEmail, txtRegEmail, getString(R.string.error_message_email)))
+        if(!inputValidation.isInputEditInteger(txtAge, textInputLayoutAge, getString(R.string.error_message_age)))
         {
             return;
         }
@@ -120,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             user.setName(txtName.getText().toString().trim());
             user.setEmail(txtEmail.getText().toString().trim());
             user.setPassword((txtPass.getText().toString().trim()));
+            user.setAge(Integer.parseInt(txtAge.getText().toString().trim()));
 
             databaseHelper.addUser(user);
 

@@ -51,6 +51,33 @@ public class InputValidation {
         return true;
     }
 
+    public boolean isInputEditInteger(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message)
+    {
+        String value = textInputEditText.getText().toString().trim();
+        boolean isCharacter = true;
+
+        for(int i=0; i<value.length(); i++)
+        {
+            char character = value.charAt(i);
+            if(character < '0' || character > '9')
+            {
+                isCharacter = false;
+            }
+        }
+
+        if(value.isEmpty() || !isCharacter)
+        {
+            textInputLayout.setError(message);
+            hideKeyboardFrom(textInputEditText);
+            return false;
+        }
+        else
+        {
+            textInputLayout.setEnabled(false);
+        }
+        return true;
+    }
+
     public boolean isInputEditTextMatches(TextInputEditText textInputEditText1,
                                           TextInputEditText textInputEditText2,
                                           TextInputLayout textInputLayout, String message)

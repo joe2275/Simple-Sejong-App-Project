@@ -33,7 +33,7 @@
                 android:id="@+id/email_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#AADCDCDC"
+                android:background="@color/editTextColor"
                 android:drawableLeft="@drawable/ic_action_name"
                 android:hint="@string/hint_email"
                 android:inputType="textWebEmailAddress"
@@ -50,37 +50,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/fab_margin"
-                android:background="#AADCDCDC"
+                android:background="@color/editTextColor"
                 android:drawableLeft="@drawable/ic_action_password"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/buttonColor"
-            app:cardCornerRadius="25dp"
-            app:cardElevation="10dp"
-            android:layout_marginTop="@dimen/btn_vertical_margin"
-            android:layout_marginBottom="@dimen/btn_vertical_margin">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <Button
-                    android:id="@+id/loginButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:background="@color/buttonColor"
-                    android:text="@string/text_login"
-                    android:textSize="30sp" />
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/base_button"
+            android:text="@string/text_login"
+            android:textColor="@color/baseButtonTextColor"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/remainingCount_text"
@@ -97,7 +82,7 @@
             android:id="@+id/txtReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:layout_marginBottom="@dimen/btn_vertical_margin"
             android:text="@string/text_not_member"
             android:textColor="#FFFFFFFF"
