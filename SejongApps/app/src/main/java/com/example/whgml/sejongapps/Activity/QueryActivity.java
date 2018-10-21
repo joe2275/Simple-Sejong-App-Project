@@ -74,7 +74,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
             }
         }
 
-        if(value.isEmpty() || !isCharacter)
+        if(value.isEmpty() || isCharacter)
         {
             return false;
         }
@@ -94,7 +94,6 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
             email = queryEmailEditText.getText().toString().trim();
             age = queryAgeEditText.getText().toString().trim();
             password = queryPasswordEditText.getText().toString().trim();
-
             if(name.equals("") || email.equals("") || password.equals("") || integerValidation(age))
             {
                 Toast.makeText(this, "Please fill up all the fields!", Toast.LENGTH_SHORT).show();
@@ -108,6 +107,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
                 user.setAge(Integer.parseInt(age));
                 user.setPassword(password);
                 sqlitedb.addUser(user);
+                Toast.makeText(activity, "New User Added", Toast.LENGTH_SHORT).show();
             }
         }
         else if(id == R.id.selectAllBtn)
@@ -126,7 +126,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
             if(user != null)
             {
                 queryNameEditText.setText(user.getName());
-                queryAgeEditText.setText(user.getAge());
+                queryAgeEditText.setText(String.valueOf(user.getAge()));
                 queryEmailEditText.setText(user.getEmail());
                 queryPasswordEditText.setText(user.getPassword());
             }
@@ -153,7 +153,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
             user.setName(name);
             user.setEmail(email);
             user.setAge(Integer.parseInt(age));
-
+            user.setPassword(password);
             sqlitedb.updateUserUsingName(search, user);
         }
         else if(id == R.id.deleteBtn)
@@ -165,6 +165,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
                 return;
             }
 
+            sqlitedb.deleteUserUsingName(search);
         }
     }
 }

@@ -111,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(cursorUpdate.moveToFirst()) {
             db.execSQL("Update " + TABLE_USER + " Set " + COLUMN_USER_NAME + "='" + user.getName()
                     + "', " + COLUMN_USER_EMAIL + "='" + user.getEmail() + "', " + COLUMN_USER_AGE + "=" + user.getAge() + ", "
-                    + COLUMN_USER_PASSWORD + "='" + user.getPassword() + " Where " + COLUMN_USER_NAME + "='" + searchName + "'");
+                    + COLUMN_USER_PASSWORD + "='" + user.getPassword() + "' Where " + COLUMN_USER_NAME + "='" + searchName + "'");
 
             Toast.makeText(activity, "Record Modified", Toast.LENGTH_SHORT).show();
         }

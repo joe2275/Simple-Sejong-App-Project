@@ -22,7 +22,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity);
-
+        initialize();
     }
 
     private void initialize()
@@ -30,6 +30,8 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         calculatorBtn = (ImageView)findViewById(R.id.calculatorButton);
         primeNumBtn = (ImageView)findViewById(R.id.primeNumButton);
         sqlBtn = (ImageView)findViewById(R.id.sqlButton);
+
+        sqlBtn.setOnClickListener(this);
 
         sqlIntent = new Intent(this, QueryActivity.class);
     }
