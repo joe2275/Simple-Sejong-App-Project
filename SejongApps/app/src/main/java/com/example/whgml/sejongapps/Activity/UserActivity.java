@@ -15,8 +15,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView calculatorBtn;
     private ImageView primeNumBtn;
     private ImageView sqlBtn;
+    private ImageView tableBtn;
 
+    private Intent primeIntent;
     private Intent sqlIntent;
+    private Intent calcIntent;
+    private Intent tableIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +34,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         calculatorBtn = (ImageView)findViewById(R.id.calculatorButton);
         primeNumBtn = (ImageView)findViewById(R.id.primeNumButton);
         sqlBtn = (ImageView)findViewById(R.id.sqlButton);
+        tableBtn = (ImageView)findViewById(R.id.tableButton);
 
         sqlBtn.setOnClickListener(this);
+        tableBtn.setOnClickListener(this);
 
         sqlIntent = new Intent(this, QueryActivity.class);
+        tableIntent = new Intent(this, TableActivity.class);
     }
 
     @Override
@@ -43,6 +50,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         if(id == R.id.sqlButton)
         {
             startActivity(sqlIntent);
+        }
+        if(id == R.id.tableButton)
+        {
+            startActivity(tableIntent);
         }
     }
 }

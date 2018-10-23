@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.example.whgml.sejongapps.Model.User;
 
+import java.util.ArrayList;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "UserManager.db";
@@ -59,6 +61,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_USER, null, values);
         db.close();
+    }
+
+    public String[][] getAllUser()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<String[]> userList = new ArrayList<String[]>();
+        int numOfRows = 0;
+        String name, email, age;
+        Cursor c = db.rawQuery("Select user_name, user_email, user_age From " + TABLE_USER, null);
+        while(c.moveToNext())
+        {
+            name = c.getString(0);
+            email = c.getString(1);
+            age = String.valueOf(c.getInt(2));
+
+            String[] values = new String[3];
+            values[0] = name;
+            values[1] = email;
+            values[2] = age;
+            userList.add(values);
+        }
+        String[][] valueRows = new String[userList.size()][];
+        int index = 0;
+        for(String[] row : userList)
+        {
+            valueRows[index] = row;
+            index++;
+        }
+
+        return valueRows;
     }
 
     public void selectAllUser()

@@ -55,6 +55,15 @@
             android:layout_marginBottom="@dimen/fab_margin"
             android:background="@drawable/base_title"
             android:src="@drawable/sql_logo"/>
+        <ImageView
+            android:id="@+id/tableButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:background="@drawable/base_title"
+            android:src="@drawable/table_icon"/>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
