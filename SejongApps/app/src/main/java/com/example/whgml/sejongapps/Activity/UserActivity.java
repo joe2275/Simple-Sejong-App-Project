@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.whgml.sejongapps.Helper.Calculator;
+import com.example.whgml.sejongapps.Model.PrimeActivity;
 import com.example.whgml.sejongapps.R;
 
 public class UserActivity extends AppCompatActivity implements View.OnClickListener{
@@ -38,9 +40,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         sqlBtn.setOnClickListener(this);
         tableBtn.setOnClickListener(this);
+        calculatorBtn.setOnClickListener(this);
+        primeNumBtn.setOnClickListener(this);
 
         sqlIntent = new Intent(this, QueryActivity.class);
         tableIntent = new Intent(this, TableActivity.class);
+        calcIntent = new Intent(this, CalculatorActivity.class);
+        primeIntent = new Intent(this, PrimeActivity.class);
     }
 
     @Override
@@ -51,9 +57,17 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         {
             startActivity(sqlIntent);
         }
-        if(id == R.id.tableButton)
+        else if(id == R.id.tableButton)
         {
             startActivity(tableIntent);
+        }
+        else if(id == R.id.calculatorButton)
+        {
+            startActivity(calcIntent);
+        }
+        else if(id == R.id.primeNumButton)
+        {
+            startActivity(primeIntent);
         }
     }
 }

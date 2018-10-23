@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SejongApps</string>
+    <string name="app_name">Zaoxi\'s Sejong Apps</string>
     <string name="remainingText">Remaining Available Attempts </string>
     <string name="outOfRemaining">Out of Attempts</string>
 
@@ -23,4 +23,33 @@
     <string name="text_member">Already a member? Login</string>
     <string name="select_student_name">Enter a Student Name</string>
     <string name="button_sql">SQLite</string>
+
+    <string name="one_btn">1</string>
+    <string name="two_btn">2</string>
+    <string name="three_btn">3</string>
+    <string name="four_btn">4</string>
+    <string name="five_btn">5</string>
+    <string name="six_btn">6</string>
+    <string name="seven_btn">7</string>
+    <string name="eight_btn">8</string>
+    <string name="nine_btn">9</string>
+    <string name="zero_btn">0</string>
+    <string name="prev_btn">PREV</string>
+    <string name="next_btn">NEXT</string>
+    <string name="ac_btn">AC</string>
+    <string name="ec_btn">EC</string>
+    <string name="eq_btn">=</string>
+    <string name="dot_btn">.</string>
+    <string name="mul_btn">*</string>
+    <string name="div_btn">/</string>
+    <string name="add_btn">+</string>
+    <string name="sub_btn">-</string>
+    <string name="start_blank_btn">(</string>
+    <string name="end_blank_btn">)</string>
+    <string name="sin_btn">sin</string>
+    <string name="cos_btn">cos</string>
+    <string name="tan_btn">tan</string>
+    <string name="deg_mode">Deg</string>
+    <string name="rad_mode">Rad</string>
+
 </resources>
