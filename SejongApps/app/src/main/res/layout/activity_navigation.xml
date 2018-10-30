@@ -8,23 +8,6 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_first_layout"
-            android:loon="@drawable/ic_menu_camera"
-            android:title="First Layout" />
-        <item
-            android:id="@+id/nav_second_layout"
-            android:loon="@drawable/ic_menu_gallery"
-            android:title="Second Layout" />
-        <item
-            android:id="@+id/nav_third_layout"
-            android:loon="@drawable/ic_menu_slideshow"
-            android:title="Third Layout" />
-    </group>
-
-
-
     <include
         layout="@layout/app_bar_navigation"
         android:layout_width="match_parent"
