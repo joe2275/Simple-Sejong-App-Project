@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.whgml.sejongapps">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
@@ -25,8 +27,11 @@
         <activity android:name=".Activity.QueryActivity" />
         <activity android:name=".Activity.TableActivity" />
         <activity android:name=".Activity.CalculatorActivity" />
-        <activity android:name=".Model.PrimeActivity"></activity>
+        <activity android:name=".Model.PrimeActivity" />
+        <activity
+            android:name=".navigationActivity"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

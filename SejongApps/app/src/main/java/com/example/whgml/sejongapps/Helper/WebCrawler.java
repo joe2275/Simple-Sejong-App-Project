@@ -47,6 +47,8 @@ public class WebCrawler {
             while(true) {
                 prevIndex = index;
                 index = htmlString.indexOf("\n", index) + 1;
+                if(index == -1 || prevIndex == -1)
+                    break;
                 String line = htmlString.substring(prevIndex, index);
                 if(!line.contains("*"))
                 {
