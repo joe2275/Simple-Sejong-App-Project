@@ -31,7 +31,8 @@
         <activity
             android:name=".navigationActivity"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ScreenActivity"></activity>
     </application>
 
 </manifest>
