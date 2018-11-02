@@ -1,4 +1,4 @@
-package com.example.whgml.sejongapps;
+package com.example.whgml.sejongapps.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.whgml.sejongapps.FirstFragment;
+import com.example.whgml.sejongapps.R;
+import com.example.whgml.sejongapps.SecondFragment;
+import com.example.whgml.sejongapps.ThirdFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

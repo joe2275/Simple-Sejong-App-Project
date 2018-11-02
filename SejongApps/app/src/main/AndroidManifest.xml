@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.LoginActivity">
+        <activity android:name=".Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,10 +29,10 @@
         <activity android:name=".Activity.CalculatorActivity" />
         <activity android:name=".Model.PrimeActivity" />
         <activity
-            android:name=".navigationActivity"
+            android:name=".Activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ScreenActivity"></activity>
+        <activity android:name=".Activity.LoginActivity"/>
     </application>
 
 </manifest>
