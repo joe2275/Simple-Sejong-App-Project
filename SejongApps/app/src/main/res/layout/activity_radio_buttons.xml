@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RadioButtonsActivity"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroup_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/radioButton_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello World_0"/>
+        <RadioButton
+            android:id="@+id/radioButton_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello World_1"/>
+        <RadioButton
+            android:id="@+id/radioButton_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello World_2"/>
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/checkBox_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mobile Programming"/>
+    <CheckBox
+        android:id="@+id/checkBox_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Database"/>
+    <CheckBox
+        android:id="@+id/checkBox_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Communications"/>
+    <CheckBox
+        android:id="@+id/checkBox_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Operating Systems"/>
+
+</LinearLayout>
