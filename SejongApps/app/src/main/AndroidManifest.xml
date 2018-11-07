@@ -32,7 +32,8 @@
             android:name=".Activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Activity.LoginActivity"/>
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".SeekBarActivity"></activity>
     </application>
 
 </manifest>
