@@ -7,15 +7,23 @@
         <item
             android:id="@+id/nav_first_layout"
             android:icon="@drawable/ic_menu_camera"
-            android:title="First Layout" />
+            android:title="Calculator" />
         <item
             android:id="@+id/nav_second_layout"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Second Layout" />
+            android:title="Prime Number" />
         <item
             android:id="@+id/nav_third_layout"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Third Layout" />
+            android:title="SQL" />
+        <item
+            android:id="@+id/nav_fourth_layout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="User Table"/>
+        <item
+            android:id="@+id/nav_fifth_layout"
+            android:icon="@drawable/ic_menu_send"
+            android:title="User Form"/>
     </group>
 
     <item android:title="Communicate">
@@ -25,9 +33,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_display"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Display" />
         </menu>
     </item>
 

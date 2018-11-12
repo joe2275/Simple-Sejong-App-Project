@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.InfoDisplayActivity"
+    android:background="@drawable/login_background">
+
+    <TextView
+        android:id="@+id/textView_studentInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/student_information"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginTop="@dimen/fab_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/base_title"
+        android:textColor="@color/baseButtonTextColor"/>
+
+    <TextView
+        android:id="@+id/textView_studentFullName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentInformation"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="@string/student_full_name"
+        android:textSize="20sp"
+        android:textColor="@color/silver"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/textView_studentId"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentFullName"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="@string/student_id"
+        android:textSize="20sp"
+        android:textColor="@color/silver"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/textView_studentEmail"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentId"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="@string/student_email"
+        android:textSize="20sp"
+        android:textColor="@color/silver"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/textView_studentAge"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentEmail"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="@string/student_age"
+        android:textSize="20sp"
+        android:textColor="@color/silver"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/textView_studentEducationGrade"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentAge"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="@string/education_grade"
+        android:textSize="20sp"
+        android:textColor="@color/silver"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/textView_studentPassedCourses"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentEducationGrade"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="@string/passed_courses"
+        android:textSize="20sp"
+        android:textColor="@color/silver"
+        android:textStyle="italic"/>
+
+
+    <TextView
+        android:id="@+id/textView_studentFullNameEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textView_studentFullName"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentInformation"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="20sp"
+        android:textColor="@color/white_smoke" />
+    <TextView
+        android:id="@+id/textView_studentIdEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textView_studentId"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentFullNameEntry"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="20sp"
+        android:textColor="@color/white_smoke" />
+    <TextView
+        android:id="@+id/textView_studentEmailEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/textView_studentEmail"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentIdEntry"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="20sp"
+        android:textColor="@color/white_smoke"/>
+    <TextView
+        android:id="@+id/textView_studentAgeEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textView_studentAge"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentEmailEntry"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="20sp"
+        android:textColor="@color/white_smoke"/>
+    <TextView
+        android:id="@+id/textView_studentEducationGradeEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textView_studentEducationGrade"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentAgeEntry"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="20sp"
+        android:textColor="@color/white_smoke"/>
+    <TextView
+        android:id="@+id/textView_studentPassedCoursesEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textView_studentPassedCourses"
+        app:layout_constraintTop_toBottomOf="@id/textView_studentPassedCourses"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="20sp"
+        android:textColor="@color/white_smoke"/>
+
+
+</android.support.constraint.ConstraintLayout>

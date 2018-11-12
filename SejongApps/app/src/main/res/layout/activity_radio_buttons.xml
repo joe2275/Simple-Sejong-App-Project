@@ -4,49 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RadioButtonsActivity"
-    android:orientation="vertical">
+    tools:context=".Activity.RadioButtonsActivity"
+    android:orientation="vertical"
+    android:background="@drawable/login_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/student_information"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/base_title"
+        android:textColor="@color/baseButtonTextColor"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editText_studentFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/student_full_name"
+        android:textSize="15sp"
+        android:textColorHint="@color/silver"
+        android:textColor="@color/silver"/>
+    <EditText
+        android:id="@+id/editText_studentId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/student_id"
+        android:textSize="15sp"
+        android:textColorHint="@color/silver"
+        android:textColor="@color/silver"/>
+    <EditText
+        android:id="@+id/editText_studentEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/student_email"
+        android:textSize="15sp"
+        android:textColorHint="@color/silver"
+        android:textColor="@color/silver"/>
+    <EditText
+        android:id="@+id/editText_studentAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="@string/student_age"
+        android:textSize="15sp"
+        android:textColorHint="@color/silver"
+        android:textColor="@color/silver"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/education_grade"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:background="@drawable/base_title"
+        android:gravity="center"/>
 
     <RadioGroup
-        android:id="@+id/radioGroup_0"
+        android:id="@+id/radioGroup_graduationInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
-            android:id="@+id/radioButton_0"
+            android:id="@+id/radioButton_undergraduate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World_0"/>
+            android:text="@string/grade_undergraduate"
+            android:textColor="@color/white_smoke" />
         <RadioButton
-            android:id="@+id/radioButton_1"
+            android:id="@+id/radioButton_graduate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World_1"/>
-        <RadioButton
-            android:id="@+id/radioButton_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World_2"/>
+            android:text="@string/grade_graduate"
+            android:textColor="@color/white_smoke" />
     </RadioGroup>
 
-    <CheckBox
-        android:id="@+id/checkBox_0"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mobile Programming"/>
+        android:text="@string/passed_courses"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:background="@drawable/base_title"
+        android:gravity="center"/>
     <CheckBox
-        android:id="@+id/checkBox_1"
+        android:id="@+id/checkBox_mobileProgramming"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Database"/>
+        android:text="@string/course_mobile_programming"
+        android:textColor="@color/white_smoke" />
     <CheckBox
-        android:id="@+id/checkBox_2"
+        android:id="@+id/checkBox_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Communications"/>
+        android:text="@string/course_database"
+        android:textColor="@color/white_smoke" />
     <CheckBox
-        android:id="@+id/checkBox_3"
+        android:id="@+id/checkBox_communications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Operating Systems"/>
+        android:text="@string/course_communications"
+        android:textColor="@color/white_smoke" />
+    <CheckBox
+        android:id="@+id/checkBox_operatingSystems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/course_operating_systems"
+        android:textColor="@color/white_smoke" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:background="@drawable/base_button"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

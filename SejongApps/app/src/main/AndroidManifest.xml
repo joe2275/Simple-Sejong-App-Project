@@ -33,7 +33,8 @@
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".RadioButtonsActivity"></activity>
+        <activity android:name=".Activity.RadioButtonsActivity" />
+        <activity android:name=".Activity.InfoDisplayActivity"></activity>
     </application>
 
 </manifest>

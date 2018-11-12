@@ -58,4 +58,24 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string name="education_grade">Education Grade</string>
+    <string name="grade_undergraduate">Undergraduate</string>
+    <string name="grade_graduate">Graduate</string>
+
+    <string name="passed_courses">Passed Courses</string>
+    <string name="course_mobile_programming">Mobile Programming</string>
+    <string name="course_database">Database</string>
+    <string name="course_communications">Communications</string>
+    <string name="course_operating_systems">Operating Systems</string>
+
+    <string name="student_information">Student Information</string>
+    <string name="student_full_name">Full Name</string>
+    <string name="student_id">Student ID</string>
+    <string name="student_email">Email</string>
+    <string name="student_age">Age</string>
+
+    <string name="submit">Submit</string>
+
+
 </resources>

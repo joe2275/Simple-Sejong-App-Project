@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
         loginBtn = (Button)findViewById(R.id.loginButton);
         txtReg = (AppCompatTextView)findViewById(R.id.txtReg);
 
-        userIntent = new Intent(LoginActivity.this, UserActivity.class);
+        userIntent = new Intent(LoginActivity.this, NavigationActivity.class);
         registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
 
         loginBtn.setOnClickListener(this);

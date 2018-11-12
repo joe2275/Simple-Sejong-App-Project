@@ -1,8 +1,17 @@
 package com.example.whgml.sejongapps.Activity;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,7 +21,7 @@ import com.example.whgml.sejongapps.R;
 import java.util.Stack;
 
 
-public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener{
+public class CalculatorActivity extends Fragment implements View.OnClickListener{
 
     private final int COUNT_BUTTON = 10;
     private boolean isRadMode;
@@ -39,11 +48,19 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     private Stack<CharSequence> formulaStack;
     private Stack<CharSequence> nextFormulaStack;
 
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.calculator_activity);
+//        InitActivity();
+//    }
+    private View myView;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.calculator_activity);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.calculator_activity, container, false);
         InitActivity();
+        return myView;
     }
 
     @Override
@@ -188,36 +205,36 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     private void InitActivity() {
         isRadMode = false;
         numberBtns = new Button[COUNT_BUTTON];
-        numberBtns[0] = (Button) findViewById(R.id.zeroBtn);
-        numberBtns[1] = (Button) findViewById(R.id.oneBtn);
-        numberBtns[2] = (Button) findViewById(R.id.twoBtn);
-        numberBtns[3] = (Button) findViewById(R.id.threeBtn);
-        numberBtns[4] = (Button) findViewById(R.id.fourBtn);
-        numberBtns[5] = (Button) findViewById(R.id.fiveBtn);
-        numberBtns[6] = (Button) findViewById(R.id.sixBtn);
-        numberBtns[7] = (Button) findViewById(R.id.sevenBtn);
-        numberBtns[8] = (Button) findViewById(R.id.eightBtn);
-        numberBtns[9] = (Button) findViewById(R.id.nineBtn);
-        eqBtn = (Button) findViewById(R.id.eqBtn);
-        prevBtn = (Button) findViewById(R.id.prevBtn);
-        nextBtn = (Button) findViewById(R.id.nextBtn);
-        acBtn = (Button) findViewById(R.id.acBtn);
-        ecBtn = (Button) findViewById(R.id.ecBtn);
-        addBtn = (Button) findViewById(R.id.addBtn);
-        subBtn = (Button) findViewById(R.id.subsBtn);
-        mulBtn = (Button) findViewById(R.id.multiplyBtn);
-        divBtn = (Button) findViewById(R.id.divideBtn);
-        dotBtn = (Button) findViewById(R.id.dotBtn);
-        sinBtn = (Button) findViewById(R.id.sinBtn);
-        cosBtn = (Button) findViewById(R.id.cosBtn);
-        tanBtn = (Button) findViewById(R.id.tanBtn);
-        degRadBtn = (Button) findViewById(R.id.deg_radBtn);
+        numberBtns[0] = (Button) myView.findViewById(R.id.zeroBtn);
+        numberBtns[1] = (Button) myView.findViewById(R.id.oneBtn);
+        numberBtns[2] = (Button) myView.findViewById(R.id.twoBtn);
+        numberBtns[3] = (Button) myView.findViewById(R.id.threeBtn);
+        numberBtns[4] = (Button) myView.findViewById(R.id.fourBtn);
+        numberBtns[5] = (Button) myView.findViewById(R.id.fiveBtn);
+        numberBtns[6] = (Button) myView.findViewById(R.id.sixBtn);
+        numberBtns[7] = (Button) myView.findViewById(R.id.sevenBtn);
+        numberBtns[8] = (Button) myView.findViewById(R.id.eightBtn);
+        numberBtns[9] = (Button) myView.findViewById(R.id.nineBtn);
+        eqBtn = (Button) myView.findViewById(R.id.eqBtn);
+        prevBtn = (Button) myView.findViewById(R.id.prevBtn);
+        nextBtn = (Button) myView.findViewById(R.id.nextBtn);
+        acBtn = (Button) myView.findViewById(R.id.acBtn);
+        ecBtn = (Button) myView.findViewById(R.id.ecBtn);
+        addBtn = (Button) myView.findViewById(R.id.addBtn);
+        subBtn = (Button) myView.findViewById(R.id.subsBtn);
+        mulBtn = (Button) myView.findViewById(R.id.multiplyBtn);
+        divBtn = (Button) myView.findViewById(R.id.divideBtn);
+        dotBtn = (Button) myView.findViewById(R.id.dotBtn);
+        sinBtn = (Button) myView.findViewById(R.id.sinBtn);
+        cosBtn = (Button) myView.findViewById(R.id.cosBtn);
+        tanBtn = (Button) myView.findViewById(R.id.tanBtn);
+        degRadBtn = (Button) myView.findViewById(R.id.deg_radBtn);
 
-        startBlankBtn = (Button) findViewById(R.id.startBlankBtn);
-        endBlankBtn = (Button) findViewById(R.id.endBlankBtn);
+        startBlankBtn = (Button) myView.findViewById(R.id.startBlankBtn);
+        endBlankBtn = (Button) myView.findViewById(R.id.endBlankBtn);
 
-        formulaText = (TextView) findViewById(R.id.formulaText);
-        resultText = (TextView) findViewById(R.id.resultText);
+        formulaText = (TextView) myView.findViewById(R.id.formulaText);
+        resultText = (TextView) myView.findViewById(R.id.resultText);
         formulaStack = new Stack<CharSequence>();
         nextFormulaStack = new Stack<CharSequence>();
 
