@@ -34,7 +34,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.RadioButtonsActivity" />
-        <activity android:name=".Activity.InfoDisplayActivity"></activity>
+        <activity android:name=".Activity.InfoDisplayActivity" />
+        <activity android:name=".Activity.FirebaseActivity"></activity>
     </application>
 
 </manifest>

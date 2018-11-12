@@ -1,9 +1,14 @@
 package com.example.whgml.sejongapps.Activity;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -12,7 +17,7 @@ import android.widget.RadioGroup;
 
 import com.example.whgml.sejongapps.R;
 
-public class RadioButtonsActivity extends AppCompatActivity implements View.OnClickListener {
+public class RadioButtonsActivity extends Fragment implements View.OnClickListener {
 
     private EditText editTextStudentFullName;
     private EditText editTextStudentId;
@@ -30,15 +35,25 @@ public class RadioButtonsActivity extends AppCompatActivity implements View.OnCl
 
     private StringBuilder checkedStudentCourses;
 
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_radio_buttons);
+//        initialize();
+//    }
+
+    private View myView;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_radio_buttons);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.calculator_activity, container, false);
         initialize();
+        return myView;
     }
 
     @Override
     public void onClick(View v) {
+        System.out.println("hello");
         switch(v.getId()) {
             case R.id.button_submit :
                 if(checkBoxCourseMobileProgramming.isChecked()) {
@@ -78,21 +93,21 @@ public class RadioButtonsActivity extends AppCompatActivity implements View.OnCl
 
     private void initialize()
     {
-        infoDisplayIntent = new Intent(getApplicationContext(), InfoDisplayActivity.class);
+        infoDisplayIntent = new Intent(myView.getContext(), InfoDisplayActivity.class);
         checkedStudentCourses = new StringBuilder();
-        editTextStudentFullName = (EditText)findViewById(R.id.editText_studentFullName);
-        editTextStudentId = (EditText)findViewById(R.id.editText_studentId);
-        editTextStudentEmail = (EditText)findViewById(R.id.editText_studentEmail);
-        editTextStudentAge = (EditText)findViewById(R.id.editText_studentAge);
-        radioGroupGraduationInfo = (RadioGroup)findViewById(R.id.radioGroup_graduationInfo);
-        radioButtonStudentUndergraduate = (RadioButton)findViewById(R.id.radioButton_undergraduate);
-        radioButtonStudentGraduate = (RadioButton)findViewById(R.id.radioButton_graduate);
-        checkBoxCourseMobileProgramming = (CheckBox)findViewById(R.id.checkBox_mobileProgramming);
-        checkBoxCourseDatabase = (CheckBox)findViewById(R.id.checkBox_database);
-        checkBoxCourseCommunications = (CheckBox)findViewById(R.id.checkBox_communications);
-        checkBoxCourseOperatingSystems = (CheckBox)findViewById(R.id.checkBox_operatingSystems);
-        buttonSubmit = (Button)findViewById(R.id.button_submit);
-
+        editTextStudentFullName = (EditText)myView.findViewById(R.id.editText_studentFullName);
+        editTextStudentId = (EditText)myView.findViewById(R.id.editText_studentId);
+        editTextStudentEmail = (EditText)myView.findViewById(R.id.editText_studentEmail);
+        editTextStudentAge = (EditText)myView.findViewById(R.id.editText_studentAge);
+        radioGroupGraduationInfo = (RadioGroup)myView.findViewById(R.id.radioGroup_graduationInfo);
+        radioButtonStudentUndergraduate = (RadioButton)myView.findViewById(R.id.radioButton_undergraduate);
+        radioButtonStudentGraduate = (RadioButton)myView.findViewById(R.id.radioButton_graduate);
+        checkBoxCourseMobileProgramming = (CheckBox)myView.findViewById(R.id.checkBox_mobileProgramming);
+        checkBoxCourseDatabase = (CheckBox)myView.findViewById(R.id.checkBox_database);
+        checkBoxCourseCommunications = (CheckBox)myView.findViewById(R.id.checkBox_communications);
+        checkBoxCourseOperatingSystems = (CheckBox)myView.findViewById(R.id.checkBox_operatingSystems);
+        buttonSubmit = (Button)myView.findViewById(R.id.button_submit);
+        myView.setOnClickListener(this);
         buttonSubmit.setOnClickListener(this);
     }
 }
