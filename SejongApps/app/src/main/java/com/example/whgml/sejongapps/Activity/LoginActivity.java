@@ -1,28 +1,20 @@
 package com.example.whgml.sejongapps.Activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.whgml.sejongapps.Helper.InputValidation;
-import com.example.whgml.sejongapps.Model.User;
 import com.example.whgml.sejongapps.R;
 import com.example.whgml.sejongapps.sql.DatabaseHelper;
-import com.example.whgml.sejongapps.sql.FirebaseDAO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity implements Button.OnClickListener {
-    private FirebaseDAO dao;
+    private FirebaseAuth mAuth;
 
     private Button loginBtn;
     private TextView remainingText;
@@ -42,7 +34,6 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
     private int validateCounter;
 
     private final AppCompatActivity activity = LoginActivity.this;
-    private NestedScrollView nestedScrollView;
     private TextInputLayout txtRegEmail;
     private TextInputLayout textInputLayoutPassword;
 
@@ -59,7 +50,8 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         initialize();
-        dao = new FirebaseDAO(this);
+        // Get Firebase's auth instance
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void initialize()
@@ -71,7 +63,6 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
         remainingText = (TextView)findViewById(R.id.remainingCount_text);
 
 
-        nestedScrollView = (NestedScrollView)findViewById(R.id.login_nestedScrollView);
         txtRegEmail = (TextInputLayout)findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout)findViewById(R.id.textInputLayoutPassword);
 
@@ -107,9 +98,44 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
     @Override
     protected void onStart() {
         super.onStart();
+        // Check if user is signed in
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
     }
 
+    private void updateUI(FirebaseUser user)
+    {
+        emptyInputEditText();
+        if(user != null) {
+            startActivity(userIntent);
+        }
+        else
+        {
+            countInvalidate();
+        }
+    }
 
+    private void signIn(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d(TAG, "signInWithEmail:success");
+                            Toast.makeText(LoginActivity.this, "Authentication Success.", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+//                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
 
     private void verifyFromFirebase()
     {
@@ -129,16 +155,7 @@ public class LoginActivity extends AppCompatActivity implements Button.OnClickLi
             return;
         }
 
-        User user = dao.signIn(txtEmail.getText().toString(), txtPass.getText().toString());
-        if(user != null)
-        {
-            Toast.makeText(this, user.getEmail() + " Login.", Toast.LENGTH_SHORT).show();
-            startActivity(userIntent);
-        }
-        else
-        {
-            Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show();
-        }
+        signIn(txtEmail.getText().toString(), txtPass.getText().toString());
     }
 
     private void countInvalidate()

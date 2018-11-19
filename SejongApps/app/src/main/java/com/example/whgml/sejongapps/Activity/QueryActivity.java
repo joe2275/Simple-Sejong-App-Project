@@ -24,19 +24,17 @@ import com.example.whgml.sejongapps.sql.DatabaseHelper;
 import org.w3c.dom.Text;
 
 public class QueryActivity extends Fragment implements View.OnClickListener {
-    private final Activity activity = this.getActivity();
     private TextInputEditText queryNameEditText;
     private TextInputEditText queryEmailEditText;
     private TextInputEditText queryAgeEditText;
     private TextInputEditText selectNameEditText;
-    private TextInputEditText queryPasswordEditText;
     private Button saveBtn;
     private Button updateBtn;
     private Button deleteBtn;
     private Button selectBtn;
     private Button selectAllBtn;
     DatabaseHelper sqlitedb;
-    String name, email, age, search, password;
+    String name, email, age, search;
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +53,12 @@ public class QueryActivity extends Fragment implements View.OnClickListener {
 
     private void initialize()
     {
-        sqlitedb = new DatabaseHelper(activity);
+        sqlitedb = new DatabaseHelper(getContext());
 
         queryNameEditText = (TextInputEditText)myView.findViewById(R.id.queryNameEditText);
         queryEmailEditText = (TextInputEditText)myView.findViewById(R.id.queryEmailEditText);
         queryAgeEditText = (TextInputEditText)myView.findViewById(R.id.queryAgeEditText);
         selectNameEditText = (TextInputEditText)myView.findViewById(R.id.selectNameEditText);
-        queryPasswordEditText = (TextInputEditText)myView.findViewById(R.id.queryPasswordEditText);
         saveBtn = (Button)myView.findViewById(R.id.saveBtn);
         updateBtn = (Button)myView.findViewById(R.id.updateBtn);
         deleteBtn = (Button)myView.findViewById(R.id.deleteBtn);
@@ -107,8 +104,7 @@ public class QueryActivity extends Fragment implements View.OnClickListener {
             name = queryNameEditText.getText().toString().trim();
             email = queryEmailEditText.getText().toString().trim();
             age = queryAgeEditText.getText().toString().trim();
-            password = queryPasswordEditText.getText().toString().trim();
-            if(name.equals("") || email.equals("") || password.equals("") || integerValidation(age))
+            if(name.equals("") || email.equals("") || integerValidation(age))
             {
                 Toast.makeText(getContext(), "Please fill up all the fields!", Toast.LENGTH_SHORT).show();
                 return;
@@ -119,9 +115,8 @@ public class QueryActivity extends Fragment implements View.OnClickListener {
                 user.setName(name);
                 user.setEmail(email);
                 user.setAge(age);
-                user.setPassword(password);
                 sqlitedb.addUser(user);
-                Toast.makeText(activity, "New User Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "New User Added", Toast.LENGTH_SHORT).show();
             }
         }
         else if(id == R.id.selectAllBtn)
@@ -142,7 +137,6 @@ public class QueryActivity extends Fragment implements View.OnClickListener {
                 queryNameEditText.setText(user.getName());
                 queryAgeEditText.setText(String.valueOf(user.getAge()));
                 queryEmailEditText.setText(user.getEmail());
-                queryPasswordEditText.setText(user.getPassword());
             }
         }
         else if(id == R.id.updateBtn)
@@ -151,14 +145,12 @@ public class QueryActivity extends Fragment implements View.OnClickListener {
             name = queryNameEditText.getText().toString().trim();
             email = queryEmailEditText.getText().toString().trim();
             age = queryAgeEditText.getText().toString().trim();
-            password = queryPasswordEditText.getText().toString().trim();
-
             if(search.equals(""))
             {
                 Toast.makeText(getContext(), "Please Enter Student Name to Update", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(name.equals("") || email.equals("") || age.equals("") || password.equals(""))
+            if(name.equals("") || email.equals("") || age.equals(""))
             {
                 Toast.makeText(getContext(), "Please Enter New Information", Toast.LENGTH_SHORT).show();
                 return;
@@ -167,7 +159,6 @@ public class QueryActivity extends Fragment implements View.OnClickListener {
             user.setName(name);
             user.setEmail(email);
             user.setAge(age);
-            user.setPassword(password);
             sqlitedb.updateUserUsingName(search, user);
         }
         else if(id == R.id.deleteBtn)

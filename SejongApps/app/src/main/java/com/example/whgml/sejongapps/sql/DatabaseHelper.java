@@ -21,15 +21,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_NAME = "user_name";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_AGE = "user_age";
-    private static final String COLUMN_USER_PASSWORD = "user_password";
     private Context activity;
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "(" +
             COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_USER_NAME + " TEXT, " +
             COLUMN_USER_EMAIL + " TEXT, " +
-            COLUMN_USER_AGE + " INTEGER, " +
-            COLUMN_USER_PASSWORD + " TEXT" + ")";
+            COLUMN_USER_AGE + " INTEGER" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
 
@@ -57,7 +55,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_NAME, user.getName());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
         values.put(COLUMN_USER_AGE, user.getAge());
-        values.put(COLUMN_USER_PASSWORD, user.getPassword());
 
         db.insert(TABLE_USER, null, values);
         db.close();
@@ -124,7 +121,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             User user = new User();
             user.setName(c.getString(1));
             user.setEmail(c.getString(2));
-            user.setPassword(c.getString(3));
             return user;
         }
         else
@@ -141,8 +137,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursorUpdate = db.rawQuery("Select * From " + TABLE_USER + " Where " + COLUMN_USER_NAME + "='" + searchName + "'", null);
         if(cursorUpdate.moveToFirst()) {
             db.execSQL("Update " + TABLE_USER + " Set " + COLUMN_USER_NAME + "='" + user.getName()
-                    + "', " + COLUMN_USER_EMAIL + "='" + user.getEmail() + "', " + COLUMN_USER_AGE + "=" + user.getAge() + ", "
-                    + COLUMN_USER_PASSWORD + "='" + user.getPassword() + "' Where " + COLUMN_USER_NAME + "='" + searchName + "'");
+                    + "', " + COLUMN_USER_EMAIL + "='" + user.getEmail() + "', " + COLUMN_USER_AGE + "=" + user.getAge() +
+                    " Where " + COLUMN_USER_NAME + "='" + searchName + "'");
 
             Toast.makeText(activity, "Record Modified", Toast.LENGTH_SHORT).show();
         }
@@ -186,32 +182,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
 
-        if(cursorCount > 0)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkUser(String email, String password)
-    {
-        String[] columns = {
-                COLUMN_USER_ID
-        };
-        SQLiteDatabase db = this.getWritableDatabase();
-        String selection = COLUMN_USER_EMAIL + " = ?" + " AND " + COLUMN_USER_PASSWORD + " = ?";
-        String[] selectionArgs = { email, password };
-
-        Cursor cursor = db.query(TABLE_USER,
-                columns,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-        int cursorCount = cursor.getCount();
-        cursor.close();
-        db.close();
         if(cursorCount > 0)
         {
             return true;
