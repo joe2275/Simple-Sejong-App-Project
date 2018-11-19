@@ -1,8 +1,13 @@
-package com.example.whgml.sejongapps.Model;
+package com.example.whgml.sejongapps.Activity;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,7 +18,7 @@ import com.example.whgml.sejongapps.R;
 
 import org.w3c.dom.Text;
 
-public class PrimeActivity extends AppCompatActivity implements View.OnClickListener {
+public class PrimeActivity extends Fragment implements View.OnClickListener {
 
     private Button isPrimeBtn;
     private TextView primeText;
@@ -27,20 +32,29 @@ public class PrimeActivity extends AppCompatActivity implements View.OnClickList
     private final String dividedBy = "Divided By : ";
     private final String oddNo = " is Even Number";
     private final String oddYes = " is Odd Number";
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.prime_activity);
+//        InitElement();
+//    }
+    private View myView;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.prime_activity);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.prime_activity, container, false);
         InitElement();
+        return myView;
     }
 
+
     private void InitElement() {
-        isPrimeBtn = (Button) findViewById(R.id.isPrimeBtn);
-        primeText = (TextView) findViewById(R.id.primeResultText);
-        oddText = (TextView) findViewById(R.id.oddResultText);
-        dividedText = (TextView) findViewById(R.id.dividedResultText);
-        inputText = (EditText) findViewById(R.id.numberInput);
-        contentText = (TextView) findViewById(R.id.contentText);
+        isPrimeBtn = (Button) myView.findViewById(R.id.isPrimeBtn);
+        primeText = (TextView) myView.findViewById(R.id.primeResultText);
+        oddText = (TextView) myView.findViewById(R.id.oddResultText);
+        dividedText = (TextView) myView.findViewById(R.id.dividedResultText);
+        inputText = (EditText) myView.findViewById(R.id.numberInput);
+        contentText = (TextView) myView.findViewById(R.id.contentText);
         isPrimeBtn.setOnClickListener(this);
     }
 

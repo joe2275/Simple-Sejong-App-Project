@@ -33,4 +33,7 @@ dependencies {
     implementation 'de.codecrafters.tableview:tableview:2.2.0'
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-database:16.0.5'
 }
+apply plugin: 'com.google.gms.google-services'

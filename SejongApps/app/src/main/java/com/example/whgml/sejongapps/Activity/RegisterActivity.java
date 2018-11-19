@@ -1,6 +1,7 @@
 package com.example.whgml.sejongapps.Activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -9,13 +10,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.whgml.sejongapps.Helper.InputValidation;
 import com.example.whgml.sejongapps.Model.User;
 import com.example.whgml.sejongapps.R;
 import com.example.whgml.sejongapps.sql.DatabaseHelper;
+import com.example.whgml.sejongapps.sql.FirebaseDAO;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private FirebaseDAO dao;
     private final AppCompatActivity activity = RegisterActivity.this;
     private NestedScrollView nestedScrollView;
     private TextInputLayout textInputLayoutName;
@@ -43,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
         initialize();
+        dao = new FirebaseDAO(this);
     }
 
     private void initialize()
@@ -76,8 +87,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch(v.getId())
         {
             case R.id.registerButton_reg:
-                System.out.println("clock");
-                postDataToSQLite();
+                postDataToFirebase();
                 break;
             case R.id.appCompatTextViewLoginLink:
                 finish();
@@ -85,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private void postDataToSQLite()
+    private void postDataToFirebase()
     {
         if(!inputValidation.isInputEditTextFilled(txtName, textInputLayoutName, getString(R.string.error_message_name)))
         {
@@ -109,22 +119,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        if(!databaseHelper.checkUser(txtEmail.getText().toString().trim()))
-        {
-            user.setName(txtName.getText().toString().trim());
-            user.setEmail(txtEmail.getText().toString().trim());
-            user.setPassword((txtPass.getText().toString().trim()));
-            user.setAge(Integer.parseInt(txtAge.getText().toString().trim()));
-
-            databaseHelper.addUser(user);
-
-            Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
-            emptyInputEditText();
+        User user = dao.createAccount(txtEmail.getText().toString(), txtPass.getText().toString(), txtName.getText().toString(), txtAge.getText().toString());
+        if(user != null) {
+            Toast.makeText(this, "Register Success.", Toast.LENGTH_SHORT).show();
         }
-        else
-        {
-            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+        else {
+            Toast.makeText(this, "Register Failed.", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     private void emptyInputEditText()

@@ -46,27 +46,26 @@ public class RadioButtonsActivity extends Fragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.calculator_activity, container, false);
+        myView = inflater.inflate(R.layout.activity_radio_buttons, container, false);
         initialize();
         return myView;
     }
 
     @Override
     public void onClick(View v) {
-        System.out.println("hello");
         switch(v.getId()) {
             case R.id.button_submit :
                 if(checkBoxCourseMobileProgramming.isChecked()) {
-                    checkedStudentCourses.append(getString(R.string.course_mobile_programming +'\n'));
+                    checkedStudentCourses.append(getString(R.string.course_mobile_programming) + '\n');
                 }
                 if(checkBoxCourseDatabase.isChecked()) {
-                    checkedStudentCourses.append(getString(R.string.course_database + '\n'));
+                    checkedStudentCourses.append(getString(R.string.course_database) + '\n');
                 }
                 if(checkBoxCourseCommunications.isChecked()) {
-                    checkedStudentCourses.append(getString(R.string.course_communications + '\n'));
+                    checkedStudentCourses.append(getString(R.string.course_communications) + '\n');
                 }
                 if(checkBoxCourseOperatingSystems.isChecked()) {
-                    checkedStudentCourses.append(getString(R.string.course_operating_systems + '\n'));
+                    checkedStudentCourses.append(getString(R.string.course_operating_systems) + '\n');
                 }
                 String graduation = "";
                 int radioGroupId = radioGroupGraduationInfo.getCheckedRadioButtonId();

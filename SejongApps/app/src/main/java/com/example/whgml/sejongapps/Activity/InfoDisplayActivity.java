@@ -29,7 +29,7 @@ public class InfoDisplayActivity extends AppCompatActivity {
         textViewStudentFullName = (TextView)findViewById(R.id.textView_studentFullNameEntry);
         textViewStudentId = (TextView)findViewById(R.id.textView_studentIdEntry);
         textViewStudentEmail = (TextView)findViewById(R.id.textView_studentEmailEntry);
-        textViewStudentAge = (TextView)findViewById(R.id.textView_studentAge);
+        textViewStudentAge = (TextView)findViewById(R.id.textView_studentAgeEntry);
         textViewStudentGraduation = (TextView)findViewById(R.id.textView_studentEducationGradeEntry);
         textViewStudentCourses = (TextView)findViewById(R.id.textView_studentPassedCoursesEntry);
 

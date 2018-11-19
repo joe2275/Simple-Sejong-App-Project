@@ -27,7 +27,7 @@
         <activity android:name=".Activity.QueryActivity" />
         <activity android:name=".Activity.TableActivity" />
         <activity android:name=".Activity.CalculatorActivity" />
-        <activity android:name=".Model.PrimeActivity" />
+        <activity android:name=".Activity.PrimeActivity" />
         <activity
             android:name=".Activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
