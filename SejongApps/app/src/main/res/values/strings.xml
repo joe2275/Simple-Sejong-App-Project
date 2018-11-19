@@ -76,6 +76,7 @@
     <string name="student_age">Age</string>
 
     <string name="submit">Submit</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
