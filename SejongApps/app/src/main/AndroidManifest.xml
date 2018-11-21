@@ -26,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity.RegisterActivity"
             android:screenOrientation="portrait" />
@@ -51,6 +50,10 @@
         <activity
             android:name=".Activity.MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".Activity.TabbedActivity"
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
