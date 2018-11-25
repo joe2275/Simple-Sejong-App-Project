@@ -29,7 +29,7 @@
             />
 
         <ImageView
-            android:id="@+id/calculatorButton"
+            android:id="@+id/mapActivityButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
             android:background="@drawable/base_title"
             android:src="@drawable/calculator_logo"/>
         <ImageView
-            android:id="@+id/primeNumButton"
+            android:id="@+id/tabbedActivityButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

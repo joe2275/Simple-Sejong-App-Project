@@ -15,14 +15,14 @@ import com.example.whgml.sejongapps.R;
 
 public class UserActivity extends Fragment implements View.OnClickListener{
 
-    private ImageView calculatorBtn;
-    private ImageView primeNumBtn;
+    private ImageView mapActivityBtn;
+    private ImageView tabbedActivityBtn;
     private ImageView sqlBtn;
     private ImageView tableBtn;
 
-    private Intent primeIntent;
+    private Intent tabbedActivityIntent;
     private Intent sqlIntent;
-    private Intent calcIntent;
+    private Intent mapActivityIntent;
     private Intent tableIntent;
 
 //    @Override
@@ -42,20 +42,20 @@ public class UserActivity extends Fragment implements View.OnClickListener{
 
     private void initialize()
     {
-        calculatorBtn = (ImageView)myView.findViewById(R.id.calculatorButton);
-        primeNumBtn = (ImageView)myView.findViewById(R.id.primeNumButton);
+        mapActivityBtn = (ImageView)myView.findViewById(R.id.mapActivityButton);
+        tabbedActivityBtn = (ImageView)myView.findViewById(R.id.tabbedActivityButton);
         sqlBtn = (ImageView)myView.findViewById(R.id.sqlButton);
         tableBtn = (ImageView)myView.findViewById(R.id.tableButton);
 
         sqlBtn.setOnClickListener(this);
         tableBtn.setOnClickListener(this);
-        calculatorBtn.setOnClickListener(this);
-        primeNumBtn.setOnClickListener(this);
+        mapActivityBtn.setOnClickListener(this);
+        tabbedActivityBtn.setOnClickListener(this);
 
         sqlIntent = new Intent(getContext(), QueryActivity.class);
         tableIntent = new Intent(getContext(), TableActivity.class);
-        calcIntent = new Intent(getContext(), CalculatorActivity.class);
-        primeIntent = new Intent(getContext(), PrimeActivity.class);
+        mapActivityIntent = new Intent(getContext(), MapsActivity.class);
+        tabbedActivityIntent = new Intent(getContext(), TabbedActivity.class);
     }
 
     @Override
@@ -70,13 +70,13 @@ public class UserActivity extends Fragment implements View.OnClickListener{
         {
             startActivity(tableIntent);
         }
-        else if(id == R.id.calculatorButton)
+        else if(id == R.id.mapActivityButton)
         {
-            startActivity(calcIntent);
+            startActivity(mapActivityIntent);
         }
-        else if(id == R.id.primeNumButton)
+        else if(id == R.id.tabbedActivityButton)
         {
-            startActivity(primeIntent);
+            startActivity(tabbedActivityIntent);
         }
     }
 }

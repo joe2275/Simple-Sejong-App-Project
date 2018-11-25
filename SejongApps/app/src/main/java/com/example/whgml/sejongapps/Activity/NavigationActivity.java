@@ -157,6 +157,8 @@ public class NavigationActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content_frame, new TableActivity()).commit();
         } else if (id == R.id.nav_fifth_layout) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, new RadioButtonsActivity()).commit();
+        } else if(id == R.id.nav_sixth_layout) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new UserActivity()).commit();
         } else if (id == R.id.nav_chat) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, new ChatActivity()).commit();
         } else if (id == R.id.nav_gallery) {
